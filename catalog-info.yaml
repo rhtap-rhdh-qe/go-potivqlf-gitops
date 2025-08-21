@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-potivqlf-gitops
+  description: This is GitOps manifest for go-potivqlf   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-potivqlf
+    backstage.io/kubernetes-id: go-potivqlf 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: go-potivqlf
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-potivqlf
